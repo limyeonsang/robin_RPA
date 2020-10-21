@@ -1,0 +1,17 @@
+import 'gmarket.appmask'
+
+WebAutomation.LaunchChrome Url: 'https://www.gmarket.co.kr/' WindowState:WebAutomation.BrowserWindowState.Maximized \
+    ClearCache:False ClearCookies:False BrowserInstance=> Browser
+    
+wait 2
+
+WebAutomation.FormFilling.PopulateTextField BrowserInstance: Browser Control: gmarket.New_Application.Web_Page_https_www_gmarket_co_kr_jaehuid_200011415_gclid_CjwKCAjwz6_5F8BRBkEiwA3p02VevGFVuUePl0InKevnq2dwxX_5FGgTUNQsR_2DUpGQ2KHox27ykr0M511.input_text_form_input \
+ Text: 'ncl77' EmulateTyping:True UnfocusAfterPopulate:False
+ 
+ wait 2
+ 
+ WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control:  gmarket.New_Application.Web_Page_https_www_gmarket_co_kr_jaehuid_200011415_gclid_CjwKCAjwz6_5F8BRBkEiwA3p02VevGFVuUePl0InKevnq2dwxX_5FGgTUNQsR_2DUpGQ2KHox27ykr0M511.img_image
+ 
+ wait 2
+
+ WebAutomation.CloseWebBrowser BrowserInstance: Browser

@@ -1,0 +1,12 @@
+
+
+DateTime.Current DateTimeFormat:DateTime.DateTimeFormat.DateAndTime Offset:'0' CurrentDateTime=> CurrentDateTime
+ 
+ Console.Write Message: '현재시간: '+ CurrentDateTime
+ 
+ function today
+    DateTime.Current DateTimeFormat:DateTime.DateTimeFormat.DateAndTime Offset:'0' CurrentDateTime=> CurrentDateTime
+    Console.Write Message: '현재시간: '+ CurrentDateTime
+end
+
+call today

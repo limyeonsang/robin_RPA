@@ -1,0 +1,31 @@
+import 'jaga.appmask'
+
+WebAutomation.LaunchChrome Url: 'https://hcs.eduro.go.kr/#/relogin' WindowState:WebAutomation.BrowserWindowState.Maximized \
+    ClearCache:False ClearCookies:False BrowserInstance=> Browser
+    
+
+WebAutomation.FormFilling.PopulateTextField BrowserInstance: Browser Control:  jaga.New_Application.Web_Page_https_hcs_eduro_go_kr_relogin.input_password_input_text_common\
+ Text: 1017 EmulateTyping:True UnfocusAfterPopulate:False
+ 
+ 
+ WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control:   jaga.New_Application.Web_Page_https_hcs_eduro_go_kr_relogin.button_btnConfirm
+  
+WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control:   jaga.New_Application.Web_Page_https_hcs_eduro_go_kr_main.button_btn
+wait 1
+  
+ WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control:   jaga.New_Application.Web_Page_https_hcs_eduro_go_kr_survey._label
+
+  
+  
+ WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control:   jaga.New_Application.Web_Page_https_hcs_eduro_go_kr_survey._label_1
+
+ WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control:   jaga.New_Application.Web_Page_https_hcs_eduro_go_kr_survey._label_2
+ 
+  WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control:   jaga.New_Application.Web_Page_https_hcs_eduro_go_kr_survey._label_3
+ 
+ WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control:   jaga.New_Application.Web_Page_https_hcs_eduro_go_kr_survey._label_4
+  
+  WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control:   jaga.New_Application.Web_Page_https_hcs_eduro_go_kr_survey.input_submit_btnConfirm
+  wait 1
+  
+ WebAutomation.CloseWebBrowser BrowserInstance: Browser

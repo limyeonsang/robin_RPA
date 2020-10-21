@@ -1,0 +1,22 @@
+import 'dms.appmask'
+
+WebAutomation.LaunchChrome Url: 'https://www.dsm-dms.com/' WindowState:WebAutomation.BrowserWindowState.Maximized \
+    ClearCache:False ClearCookies:False BrowserInstance=> Browser
+
+wait 1    
+    
+WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control: dms.New_Application.Web_Page_https_www_dsm_dms_com.button_header_button
+
+wait 1
+
+WebAutomation.FormFilling.PopulateTextField BrowserInstance: Browser Control:  dms.New_Application.Web_Page_https_www_dsm_dms_com.input_text_modal_input\
+ Text: 'star1017' EmulateTyping:True UnfocusAfterPopulate:False
+ 
+ WebAutomation.FormFilling.PopulateTextField BrowserInstance: Browser Control:  dms.New_Application.Web_Page_https_www_dsm_dms_com.input_password_modal_input\
+ Text: 'dladustkd1' EmulateTyping:True UnfocusAfterPopulate:False
+ 
+ 
+ WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control:   dms.New_Application.Web_Page_https_www_dsm_dms_com.button_modal_submit
+  
+  
+ WebAutomation.CloseWebBrowser BrowserInstance: Browser

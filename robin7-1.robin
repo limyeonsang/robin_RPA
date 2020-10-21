@@ -1,0 +1,35 @@
+Excel.LaunchAndOpen Path: '‪C:\Users\user\Desktop\text1.xlsx' \
+    Visible:True Password:'' \
+    ReadOnly:False LoadAddInsAndMacros:False \
+    Instance=> ExcelInstance
+
+wait 3
+
+
+Excel.GetFirstFreeColumnRow Instance: ExcelInstance \
+FirstFreeColumn=> FirstFreeColumn FirstFreeRow=> FirstFreeRow
+
+Console.Write Message: 'Column: '+FirstFreeColumn
+
+Console.Write Message: 'ROw: '+FirstFreeRow
+
+Excel.ReadCells Instance: ExcelInstance \
+StartColumn: 'A' StartRow: 1 \
+EndColumn: FirstFreeColumn\
+ EndRow: FirstFreeRow \
+ ReadAsText:False FirstLineIsHeader:False Value=> Value
+ 
+ Excel.ReadCells Instance: ExcelInstance\
+  StartColumn: 'A' StartRow: 2 \
+  EndColumn: FirstFreeColumn-1\
+   EndRow: FirstFreeRow-1\
+    ReadAsText:False FirstLineIsHeader:False Value => Value1
+ 
+ Console.Write Message: Value
+ Console.Write Message: Value1[0][0] 
+
+Excel.Close Instance: ExcelInstance
+
+#Excel.CloseAndSaveAs Instance: ExcelInstance DocumentFormat:\
+#Excel.ExcelFormat.FromExtension \
+#DocumentPath: '‪C:\Users\user\Desktop\text2.xlsx'

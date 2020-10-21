@@ -1,0 +1,14 @@
+set TextVar1 to 'Monday'
+set TextVar2 to 'Friday'
+set duration to TextVar1+' to '+TextVar2
+
+Console.Write Message: duration
+
+
+set targetYear to '2020'
+set targetMonth to '08'
+set targetDay to '01'
+set FilePath to 'C:\Users\heine\Desktop\2020'
+set fullFilePath to Filepath+$'-%targetMonth%-%targetDay%.xls'
+
+Console.Write Message: fullFilepath

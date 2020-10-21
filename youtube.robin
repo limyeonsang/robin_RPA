@@ -1,0 +1,19 @@
+import 'youtube.appmask'
+
+WebAutomation.LaunchChrome Url: 'https://www.youtube.com/' WindowState:WebAutomation.BrowserWindowState.Maximized \
+    ClearCache:False ClearCookies:False BrowserInstance=> Browser
+    
+
+WebAutomation.FormFilling.PopulateTextField BrowserInstance: Browser Control:  youtube.New_Application.Web_Page_https_www_youtube_com.input_text_search \
+ Text: 'jack stauber - buttercup (Huron Dance)' EmulateTyping:True UnfocusAfterPopulate:False
+ 
+ 
+ WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control:  youtube.New_Application.Web_Page_https_www_youtube_com.button_search_icon_legacy
+ 
+ wait 1
+ 
+WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control:   youtube.New_Application.Web_Page_https_www_youtube_com_results_search_query_jack_stauber_buttercup_Huron_Dance.yt_formatted_string_style_scope_ytd_video_renderer
+
+wait 66
+  
+ WebAutomation.CloseWebBrowser BrowserInstance: Browser
