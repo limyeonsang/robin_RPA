@@ -1,0 +1,16 @@
+import 'robin11_uiApp.appmask'
+
+UIAutomation.UseDesktop Control: robin11_uiApp.New_Application.Desktop_Icons.PowerPoint\
+ClickType:UIAutomation.DesktopClickType.DoubleClick LaunchNewApplication:True
+
+wait 1
+
+UIAutomation.Click Element: robin11_uiApp.New_Application.Window_PowerPoint.List_Item \
+ClickType:UIAutomation.ClickType.LeftClick MousePositionRelativeToElement:UIAutomation.RectangleEdgePoint.MiddleCenter \
+OffsetX:0 OffsetY:0
+
+wait 1
+
+UIAutomation.Click Element: robin11_uiApp.New_Application.Window_1_PowerPoint.Button \
+ClickType:UIAutomation.ClickType.LeftClick MousePositionRelativeToElement:UIAutomation.RectangleEdgePoint.MiddleCenter \
+OffsetX:0 OffsetY:0

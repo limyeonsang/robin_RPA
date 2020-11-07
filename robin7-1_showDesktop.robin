@@ -1,0 +1,6 @@
+System.ShowDesktop DesktopOperation:System.DesktopOperation.Show
+
+wait 3
+
+System.ShowDesktop DesktopOperation:System.DesktopOperation.Hide
+

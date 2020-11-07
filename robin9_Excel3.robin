@@ -1,0 +1,72 @@
+System.ShowDesktop DesktopOperation:System.DesktopOperation.Show
+
+
+label PromptForText
+
+#찾고자 하는 값 입력
+Display.InputDialog Title:'Please enter the text to search for' \
+Message:'단어를 입력하세요.' \
+DefaultValue:'찾는 단어를 입력하세요' \
+InputType:Display.InputType.SingleLine \
+IsTopMost:False \
+UserInput=> TextToLocate \
+ButtonPressed=> ButtonPressed
+
+Console.Write Message: TextToLocate
+
+/#
+if TextToLocate="" then
+    goto PromptForText
+end
+
+Display.InputDialog Title:'' Message:'' DefaultValue:'' \
+InputType:Display.InputType.SingleLine IsTopMost:False UserInput=> UserInput ButtonPressed=> ButtonPresse
+#/
+
+wait 1
+
+Excel.LaunchAndOpen Path: '‪C:\Users\user\Desktop\text1.xlsx' \
+    Visible:True Password:'' \
+    ReadOnly:False LoadAddInsAndMacros:False \
+    Instance=> ExcelInstance
+
+wait 1
+
+Excel.GetFirstFreeColumnRow Instance: ExcelInstance \
+FirstFreeColumn=> FirstFreeColumn FirstFreeRow=> FirstFreeRow
+
+
+Excel.ReadCells Instance: ExcelInstance \
+StartColumn: 'A' StartRow: 1 \
+EndColumn: FirstFreeColumn\
+EndRow: FirstFreeRow \
+ReadAsText:False FirstLineIsHeader:False Value=> Value
+
+Console.Write Message: 'Row Lines: '+ Value.rows.count
+Console.Write Message: 'Column Counts: '+ Value.columns.count
+Console.Write Message: ""
+
+Console.Write Message: Value
+
+wait 1 
+
+#입력한 값과 엑셀전체를 비교 -> 입력한 값과 셀값이 같은 위치를 알 수 있다
+loop i from 0 to FirstFreeRow-1 step 1
+    loop j from 0 to FirstFreeColumn step 1
+        if Value[i][j]+"" = TextToLocate then 
+            Console.Write Message: "They are equal at ["+i+"]["+j+"]"
+        else if Value[i][j]+"" TextToLocate then
+            Console.Write Message: "They are not equal"
+        end
+    end
+	
+end
+
+
+Excel.Close Instance: ExcelInstance
+
+
+System.ShowDesktop DesktopOperation:System.DesktopOperation.Hide
+
+
+

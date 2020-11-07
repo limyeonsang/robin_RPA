@@ -1,0 +1,2 @@
+set var to 'Hello RPA'
+Console.Write Message: var

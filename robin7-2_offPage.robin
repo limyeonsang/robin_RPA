@@ -1,0 +1,17 @@
+set closing to true
+Loop while closing = true
+    WebAutomation.AttachToChromeByTitle TabTitle: "NAVER" BrowserInstance=> BrowserInfo
+        on error LaunchChromeError
+            set closing to false
+        end
+    wait 1
+    if closing = false then
+        exit Loop
+    else 
+        WebAutomation.CloseWebBrowser BrowserInstance: BrowserInfo
+    end
+    wait 1
+end
+wait 1
+        
+       

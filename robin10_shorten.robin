@@ -1,0 +1,20 @@
+import 'robin10_google.appmask'
+
+System.ShowDesktop DesktopOperation:System.DesktopOperation.Show
+
+
+WebAutomation.LaunchChrome Url: "https://www.google.co.kr/" \
+    WindowState:WebAutomation.BrowserWindowState.Normal \
+    ClearCache:False ClearCookies:False BrowserInstance=> Browser
+    
+
+WebAutomation.FormFilling.PopulateTextField BrowserInstance: Browser \
+Control: robin10_google.New_Application.Web_Page_https_www_google_co_kr.input_text_gLFyf_gsfi \
+ Text: 'aaa' EmulateTyping:True UnfocusAfterPopulate:False
+
+#enter클릭 
+MouseAndKeyboard.SendKeys TextToSend: '{Enter}' DelayBetweenKeystrokes:10
+
+wait 1
+
+System.ShowDesktop DesktopOperation:System.DesktopOperation.Hide

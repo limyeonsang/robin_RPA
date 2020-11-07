@@ -1,0 +1,34 @@
+System.ShowDesktop DesktopOperation:System.DesktopOperation.Show
+
+Display.InputDialog Title:'' \
+Message:'Writing to Word via the Clipboard' \
+DefaultValue:'Enter the text you wnat to be sent to Word' \
+InputType:Display.InputType.Multiline \
+IsTopMost:False \
+UserInput=> UserInput \
+ButtonPressed=> ButtonPressed
+
+System.RunApplicationAndWaitToLoad ApplicationPath: 'notepad.exe' \
+CommandLineArguments:'' \
+WorkingDirectory:'' \
+WindowStyle:System.ProcessWindowStyle.Normal \
+Timeout:0 ProcessId=> ProcessId \
+WindowHandle=> WindowHandle
+
+Clipboard.SetText Text: UserInput
+
+wait 1
+
+MouseAndKeyboard.SendKeys TextToSend:  '{Control}({V})'\
+DelayBetweenKeystrokes:100
+
+wait 1
+
+MouseAndKeyboard.SendKeys TextToSend:  '{Alt}({F}{X})'\
+DelayBetweenKeystrokes:100
+
+wait 1
+
+MouseAndKeyboard.SendKeys TextToSend:  '{Alt}({N})'\
+DelayBetweenKeystrokes:100
+

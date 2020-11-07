@@ -1,0 +1,15 @@
+System.RunApplication ApplicationPath: 'C:Windows\System32\calc.exe' \
+CommandLineArguments:'' WorkingDirectory:'' \
+WindowStyle:System.ProcessWindowStyle.Normal \
+ProcessId=> ProcessId
+
+wait 1
+
+#수행이 됬는지 확인
+if(System.ProcessRunning ProcessName: 'calculator') then
+    Console.Write Message: 'Calculator Running OK: 1'
+else
+    Console.Write Message: 'Calculator Running OK: 0'
+end
+
+Console.Write Message: ProcessId

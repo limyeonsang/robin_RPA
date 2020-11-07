@@ -1,0 +1,14 @@
+DateTime.Current DateTimeFormat:DateTime.DateTimeFormat.DateAndTime Offset:'0' CurrentDateTime=> CurrentDateTime
+ 
+Console.Write Message: '현재시간: '+ CurrentDateTime
+
+#함수 
+ function today
+    DateTime.Current DateTimeFormat:DateTime.DateTimeFormat.DateAndTime Offset:'0' CurrentDateTime=> CurrentDateTime
+    Console.Write Message: '현재시간: '+ CurrentDateTime
+end
+#호출
+call today
+
+#메세지띄우기
+Display.ShowMessage Title:'This is the Current Time and Date' Message:CurrentDateTime ButtonPressed=> ButtonPressed

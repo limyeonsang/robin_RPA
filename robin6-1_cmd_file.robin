@@ -1,0 +1,11 @@
+Cmd.Open Directory:'C:\Users\user\Desktop' Session=> S1
+
+Cmd.Write Session: S1  Command:'copy test.txt test1.txt'  SendEnter:True
+
+Cmd.Read Session: S1 CmdOutput=> CmdOutput
+
+Console.Write Message: CmdOutput
+
+wait 1
+
+Cmd.Close Session: S1

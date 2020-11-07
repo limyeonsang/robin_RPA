@@ -1,0 +1,38 @@
+#Excel파일 열기
+Excel.LaunchAndOpen Path: '‪C:\Users\user\Desktop\text1.xlsx' \
+    Visible:True Password:'' \
+    ReadOnly:False LoadAddInsAndMacros:False \
+    Instance=> ExcelInstance
+
+wait 3
+
+#Excel.Close Instance: ExcelInstance
+
+#닫으며 text2라는 이름으로 저장
+Excel.CloseAndSaveAs Instance: ExcelInstance DocumentFormat:\
+Excel.ExcelFormat.FromExtension \
+DocumentPath: '‪C:\Users\user\Desktop\text2.xlsx'
+
+#마지막의 대각선 cell의 컬럼과 로우값을 가져옴->sheet의 크기확인
+Excel.GetFirstFreeColumnRow Instance: ExcelInstance \
+FirstFreeColumn=> FirstFreeColumn FirstFreeRow=> FirstFreeRow
+Console.Write Message: 'Column: '+FirstFreeColumn
+Console.Write Message: 'Row: '+FirstFreeRow
+
+#GetFirstFree에서 가져온 크기의 모든 값을 가져옴
+Excel.ReadCells Instance: ExcelInstance \
+StartColumn: 'A' StartRow: 1 \
+EndColumn: FirstFreeColumn\
+EndRow: FirstFreeRow \
+ReadAsText:False FirstLineIsHeader:False Value=> Value
+Console.Write Message: Value
+ 
+#딱 맞게 크기를 설정 밑 값 가져오기
+Excel.ReadCells Instance: ExcelInstance\
+StartColumn: 'A' StartRow: 2 \
+EndColumn: FirstFreeColumn-1\
+EndRow: FirstFreeRow-1\
+ReadAsText:False FirstLineIsHeader:False Value1 => Value1
+Console.Write Message: Value1
+
+Excel.Close Instance: ExcelInstance

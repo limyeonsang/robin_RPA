@@ -1,0 +1,150 @@
+import 'robin5_gmarket.appmask'
+import 'robin13_auction.appmask'
+import 'robin13_strit.appmask'
+
+set prices to [0,0,0]
+set value to 0
+
+function gmarket_price output value
+
+WebAutomation.LaunchChrome Url: 'https://www.gmarket.co.kr/' WindowState:WebAutomation.BrowserWindowState.Maximized \
+    ClearCache:False ClearCookies:False BrowserInstance=> Browser
+    
+wait 2
+
+WebAutomation.FormFilling.PopulateTextField BrowserInstance: Browser Control: robin5_gmarket.New_Application.Web_Page_https_www_gmarket_co_kr_jaehuid_200011415_gclid_CjwKCAjwz6_5F8BRBkEiwA3p02VevGFVuUePl0InKevnq2dwxX_5FGgTUNQsR_2DUpGQ2KHox27ykr0M511.input_text_form_input \
+ Text: 'ncl77' EmulateTyping:True UnfocusAfterPopulate:False
+ 
+ wait 2
+ 
+ WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control:  robin5_gmarket.New_Application.Web_Page_https_www_gmarket_co_kr_jaehuid_200011415_gclid_CjwKCAjwz6_5F8BRBkEiwA3p02VevGFVuUePl0InKevnq2dwxX_5FGgTUNQsR_2DUpGQ2KHox27ykr0M511.img_image
+ 
+ wait 2
+ 
+ WebAutomation.DataExtraction.GetDetailsOfElement BrowserInstance: Browser \
+    Control:  robin5_gmarket.New_Application.Web_Page_https_browse_gmarket_co_kr_search_keyword_ncl77.span_text_item\
+    AttributeName:'innerText' AttributeValue=> AttributeValue1
+ 
+ WebAutomation.DataExtraction.GetDetailsOfElement BrowserInstance: Browser \
+    Control:  robin5_gmarket.New_Application.Web_Page_https_browse_gmarket_co_kr_search_keyword_ncl77.strong_text_text_value\
+    AttributeName:'innerText' AttributeValue=> AttributeValue2
+ 
+ wait 1
+ 
+ Console.Write Message: AttributeValue1
+ Console.Write Message: AttributeValue2
+ 
+ wait 3
+ 
+ WebAutomation.CloseWebBrowser BrowserInstance: Browser
+ 
+ Text.ToNumber Text: AttributeValue1 Number=> TextAsNumber
+ set value to TextAsNumber
+ 
+ end # GMarket Fuction
+ 
+ 
+ 
+ 
+ function Auction_price output value
+
+WebAutomation.LaunchChrome Url: 'http://www.auction.co.kr' WindowState:WebAutomation.BrowserWindowState.Maximized \
+    ClearCache:False ClearCookies:False BrowserInstance=> Browser
+    
+wait 2
+
+WebAutomation.FormFilling.PopulateTextField BrowserInstance: Browser Control: robin13_auction.New_Application.Web_Page_http_www_auction_co_kr_redirect_1.input_text_txtKeyword\
+ Text: 'ncl77' EmulateTyping:True UnfocusAfterPopulate:False
+ 
+ wait 2
+ 
+ WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control:  robin13_auction.New_Application.Web_Page_http_www_auction_co_kr_redirect_1.input_submit_search_btn_ok
+ 
+ wait 2
+ 
+ WebAutomation.DataExtraction.GetDetailsOfElement BrowserInstance: Browser \
+    Control:  robin13_auction.New_Application.Web_Page_http_browse_auction_co_kr_search_keyword_ncl77_itemno_nickname_frm_hometab_dom_auction_isSuggestion_No_retry_Fwk_ncl77_acode_SRP_SU.span_text_title\
+    AttributeName:'innerText' AttributeValue=> AttributeValue1
+ 
+ WebAutomation.DataExtraction.GetDetailsOfElement BrowserInstance: Browser \
+    Control:  robin13_auction.New_Application.Web_Page_http_browse_auction_co_kr_search_keyword_ncl77_itemno_nickname_frm_hometab_dom_auction_isSuggestion_No_retry_Fwk_ncl77_acode_SRP_SU.strong_text_text_value\
+    AttributeName:'innerText' AttributeValue=> AttributeValue2
+ 
+ wait 1
+ 
+ Console.Write Message: AttributeValue1
+ Console.Write Message: AttributeValue2
+ 
+ wait 3
+ 
+ WebAutomation.CloseWebBrowser BrowserInstance: Browser
+ 
+ Text.ToNumber Text: AttributeValue1 Number=> TextAsNumber
+ set value to TextAsNumber
+ 
+ end # Auction Fuction
+ 
+ 
+ 
+ 
+function strit_price output value
+
+WebAutomation.LaunchChrome Url: 'https://www.11st.co.kr' WindowState:WebAutomation.BrowserWindowState.Maximized \
+    ClearCache:False ClearCookies:False BrowserInstance=> Browser
+    
+wait 2
+
+WebAutomation.FormFilling.PopulateTextField BrowserInstance: Browser Control: robin13_strit.New_Application.https_www_11st_co_kr_main_gclid_Cj0KCQjwit_8BRCoARIsAIx3Rj5L8ivjivuU4gIfRD6SnyAMzabZpbZ_epsnBPGg2fmX_02Uvog_OvwaApuQEALw_wcB_utm_te.input_text_search_text_search_text_ad\
+ Text: 'ncl77' EmulateTyping:True UnfocusAfterPopulate:False
+ 
+ wait 
+ 
+ WebAutomation.FormFilling.PressButton BrowserInstance: Browser Control:  robin13_strit.New_Application.https_www_11st_co_kr_main_gclid_Cj0KCQjwit_8BRCoARIsAIx3Rj5L8ivjivuU4gIfRD6SnyAMzabZpbZ_epsnBPGg2fmX_02Uvog_OvwaApuQEALw_wcB_utm_te.button_search_button
+ 
+ wait 2
+ 
+ WebAutomation.DataExtraction.GetDetailsOfElement BrowserInstance: Browser \
+    Control:  robin13_strit.New_Application.Web_Page_http_search_11st_co_kr_Search_tmall_kwd_ncl77.strong\
+    AttributeName:'innerText' AttributeValue=> AttributeValue1
+ 
+ WebAutomation.DataExtraction.GetDetailsOfElement BrowserInstance: Browser \
+    Control:  robin13_strit.New_Application.Web_Page_http_search_11st_co_kr_Search_tmall_kwd_ncl77.span_value\
+    AttributeName:'innerText' AttributeValue=> AttributeValue2
+ 
+ wait 1
+ 
+ Console.Write Message: AttributeValue1
+ Console.Write Message: AttributeValue2
+ 
+ wait 3
+ 
+ WebAutomation.CloseWebBrowser BrowserInstance: Browser
+ 
+ Text.ToNumber Text: AttributeValue1 Number=> TextAsNumber
+ set value to TextAsNumber
+ 
+ end # strit Fuction
+ 
+
+call gmarket_price value=>value
+set prices[0] to value
+
+wait 2
+
+call auction_price value=>value
+set prices[1] to value
+
+wait 2
+
+call strit_price value=>value
+set prices[2] to value
+
+wait 2
+
+Variables.SortList List: prices SortedList=> prices
+
+Console.Write Message: 'Min Value' + prices[0]
+Console.Write Message: 'Max value' + prices[2]
+ 
+ 
+ 

@@ -1,6 +1,0 @@
-WebAutomation.LaunchChrome Url: 'https://www.naver.com' WindowState:WebAutomation.BrowserWindowState.Normal \
-    ClearCache:False ClearCookies:False BrowserInstance=> Browser
-    
-wait 3 
-    
-WebAutomation.CloseWebBrowser BrowserInstance: Browser

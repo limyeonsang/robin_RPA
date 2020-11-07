@@ -1,0 +1,15 @@
+
+Folder.GetSpecialFolder SpecialFolder:Folder.SpecialFolder.DesktopDirectory \
+                        SpecialFolderPath=> DesktopDirectoryPath
+                        
+           
+File.RenameAddDateOrTime Files:DesktopDirectoryPath+'\test\test1.txt' \
+DateTimeToAdd:File.DateTimeToAdd.Current \
+DateTimePosition:File.AddTextPosition.AfterName \
+#Underscore 대신 Nothing, Space, Dash, Period가있다.
+DateTimeSeparator:File.Separator.Underscore \
+DateTimeFormat:'yyyyMMdd' \
+IfFileExists:File.IfExists.DoNothing RenamedFiles=> RenamedFiles
+
+
+Console.Write Message: RenamedFiles
